@@ -1,0 +1,24 @@
+.app-header{
+  height: 64px;
+  padding-block: 8px;
+  background-color: aqua;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-image{
+  height: 32px;
+  object-fit: contain;
+}
+.spacing{
+  display: flex;
+}
+.spacing>*{
+  margin-left: 6px;
+}
+.authentication-menu-item{
+  user-select: none;
+  font-size: small;
+  text-decoration: none;
+}

@@ -1,0 +1,68 @@
+.app-footer, .app-footer *{
+  background-color: aqua;
+  text-decoration: none;
+
+  font-size: small;
+}
+.footer-platform-img{
+  padding: 2px;
+  border-radius: 3px;
+  background-color: white;
+  height: 16px;
+}
+.footer-qr-img{
+  background-color: white;
+  padding: 2px;
+  border-radius: 3px;
+  height: 60px;
+  object-fit: scale-down;
+  aspect-ratio: 1/1;
+}
+.footer-payments{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.footer-payment-items, .footer-payment-items *{
+  background-color: white;
+}
+.footer-payment-items{
+  margin:2px;
+  padding:2px;
+  border-radius: 4px;
+  width: fit-content;
+}
+.footer-refs{
+  display: flex;
+  flex-direction: column;
+}
+.footer-ref-items{
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  padding: 5px 0px;
+  border-radius: 5px;
+}
+.footer-ref-items, .footer-ref-items *{
+  background-color: white;
+}
+.footer-ref-item-avt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  box-sizing: border-box;
+}
+.footer-ref-item-label{
+  width: 70%;
+  box-sizing: border-box;
+}
+.footer-link-item{
+  display: block;
+  cursor: pointer;
+  margin-block: 3px;
+}
+.footer-link-item:hover{
+  background-color: aquamarine;
+}

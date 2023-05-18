@@ -46,6 +46,7 @@ module.exports = {
   signin: (req, res, next) => {
     const phone = req.body.phone;
     const password = req.body.password;
+    console.log(`Request signin: ${phone}:${password}`)
     if (!phone || !password) {
       return res
         .status(422)
