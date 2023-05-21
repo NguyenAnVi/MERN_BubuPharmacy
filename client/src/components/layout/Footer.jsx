@@ -3,6 +3,7 @@ import './Footer.css'
 import {config} from '../../config'
 
 import { Facebook, Instagram, Reddit, Youtube, Twitter } from "grommet-icons";
+import Sheet from '@mui/joy/Sheet';
 import Grid from '@mui/joy/Grid';
 import Tooltip from '@mui/joy/Tooltip';
 
@@ -89,7 +90,7 @@ const refs = [
 
 const Footer = () => {
   return (
-    <div className='app-footer'>
+    <Sheet variant='solid' color='primary' className='app-footer'>
       <Grid container spacing={2}>
         <Grid md={3}>
             <div>
@@ -186,7 +187,7 @@ const Footer = () => {
         </Grid>
       </Grid>
       
-    </div>
+    </Sheet>
   );
 };
 export default Footer;

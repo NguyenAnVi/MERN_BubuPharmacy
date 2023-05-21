@@ -2,7 +2,7 @@
   display: block;
 }
 .App>*{
-  padding: 0px 10rem;
+  padding: 0px 8rem;
 }
 @media screen and (max-width : 750px) {
   .App>*{

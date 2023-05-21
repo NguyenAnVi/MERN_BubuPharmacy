@@ -5,42 +5,49 @@ module.exports = {
   signup: (req, res, next) => {
     const { phone, password, name, email } = req.body;
 
-    if (!phone || !password || !name || !email) {
+    if (!phone || !password || !name) {
       return res
         .status(422)
-        .send({ error: 'You must provide phone and password.' });
+        .send({ error: 'You must provide name, phone and password.' });
     }
+    
     UserModel
       .findOne({
         phone: phone
-      }).then(
+      })
+      .then(
         function (result) {
           if (result) {
             return res
               .status(422)
               .send({ error: 'Phone is in use' });
-          }
-          const user = new UserModel({
-            name: name,
-            phone: phone,
-            email: email,
-            password: password
-          })
+          } else {
+              
+            var user = new UserModel({
+              name: name,
+              phone: phone,
+              password: password,
+              email: (email)?(email):("")
+            });
 
-          user
-            .save()
-            .then(function (result) {
-              if (!result) {
-                return next(result)
-              }
-
-              res.json({
-                success: true,
-                token: token.generateToken(result)
+            user
+              .save()
+              .then(function (result) {
+                if (!result) {
+                  return next(result)
+                }
+                res.json({
+                  success: true,
+                  user: {
+                    name: result.name || "",
+                    email: result.email || ""
+                  },
+                  token: token.generateToken(result)
+                })
               })
-            })
-        }
-      )
+          } // if (result) else
+        } // function (result)
+      ) //then
   },
 
   signin: (req, res, next) => {
@@ -58,18 +65,17 @@ module.exports = {
       }).then(
         function (result) {
           if (result == null) {
-            return res.status(401).send(result || { error: "User Not Found" })
+            return res.status(401).send(result || { error: "Wrong email or password" })
           } else {
             result.comparedPassword(password, function (err, good) {
               if (err || !good) {
-                return res.status(401).send(err || 'User not found')
-              }
-              const user = {
-                name: result.name || "",
-                email: result.email || ""
+                return res.status(401).send(err || { error: "Wrong password or email" })
               }
               res.send({
-                user: user,
+                user: {
+                  name: result.name || "",
+                  email: result.email || ""
+                },
                 token: token.generateToken(result)
               })
             })

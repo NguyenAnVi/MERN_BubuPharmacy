@@ -9,7 +9,7 @@ const NotFoundPage = () => (
   >
     <h1>404 - page not found</h1>
     <h4>Sorry, the page you visited does not exist.</h4>
-    <Link  to='/home'><Button href='/' type="primary">Back Home</Button></Link>
+    <Link  to='/'><Button href='/' type="primary">Back Home</Button></Link>
   </div>
 );
 export default NotFoundPage;
