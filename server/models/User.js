@@ -6,7 +6,7 @@ const Schema = new mongoose.Schema({
     name: String,
     email: {
         type: String,
-        unique: true,
+        unique: false,
         sparse: true,
         validate: {
           validator: function(v) {

@@ -28,13 +28,13 @@ export function signUserIn(data) {
         localStorage.setItem('user_name', res.data.user.name);
         localStorage.setItem('user_email', res.data.user.email);
         toast.success('Signin successful, redirecting to Homepage', {
-          autoClose:5000,
+          autoClose:3000,
           closeOnClick:true,
           draggable: true
         });
         setTimeout(()=>{
           window.location = '/';
-        },5000,);
+        },3000,);
         
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token');
       })
@@ -80,13 +80,13 @@ export function signUserUp(userObj) {
         localStorage.setItem('user_name', res.data.user.name);
         localStorage.setItem('user_email', res.data.user.email);
         toast.success('Signup successful, redirecting to Homepage', {
-          autoClose:5000,
+          autoClose:3000,
           closeOnClick:true,
           draggable: true
         });
         setTimeout(()=>{
           window.location = '/';
-        },5000,);
+        },3000,);
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token');
       })
       .catch(error => {
@@ -127,13 +127,13 @@ export function signUserOut() {
     localStorage.removeItem('user_email');
     dispatch({ type: UNAUTH_USER })
     toast.success('Signout successful, redirecting to Homepage', {
-      autoClose:5000,
+      autoClose:3000,
       closeOnClick:true,
       draggable: true
     });
     setTimeout(()=>{
       window.location = '/';
-    },5000,);
+    },3000,);
   }
 }
 
